@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cream">#FFF8EF</color>
+    <color name="ink">#3D2C2E</color>
+    <color name="ink_soft">#7A5C60</color>
+    <color name="red">#E63946</color>
+    <color name="red_bright">#FF5D5D</color>
+    <color name="green">#2D8C5A</color>
+    <color name="pink_soft">#FFD6E2</color>
+    <color name="mint_soft">#D4F5EC</color>
+    <color name="yellow_soft">#FFF3C4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gcash_blue">#1877F2</color>
+
+    <style name="Theme.BojjisPOS" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/red_bright</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/cream</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/ink</item>
+    </style>
+
+    <style name="SectionLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="PayChip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_pay_bg</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="chipStrokeColor">@color/ink</item>
+        <item name="chipStrokeWidth">2dp</item>
+    </style>
+</resources>

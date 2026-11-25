@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8EF">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF8EF"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            app:titleTextColor="#3D2C2E"
+            app:subtitle="@string/pos_subtitle"
+            app:subtitleTextColor="#7A5C60" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Product -->
+            <TextView
+                style="@style/SectionLabel"
+                android:text="@string/products" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/productChipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:selectionRequired="true"
+                app:singleSelection="true" />
+
+            <!-- Toppings -->
+            <TextView
+                style="@style/SectionLabel"
+                android:text="@string/toppings" />
+
+            <TextView
+                android:id="@+id/toppingHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#7A5C60"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/toppingChipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Qty + add -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/qty"
+                    android:textStyle="bold"
+                    android:textColor="#3D2C2E" />
+
+                <EditText
+                    android:id="@+id/qtyEdit"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="1"
+                    android:inputType="number"
+                    android:importantForAutofill="no"
+                    android:background="@drawable/bg_input"
+                    android:padding="10dp"
+                    android:textAlignment="center" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddToCart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/add_to_cart"
+                    app:backgroundTint="#E63946"
+                    app:cornerRadius="16dp" />
+            </LinearLayout>
+
+            <!-- Cart -->
+            <TextView
+                style="@style/SectionLabel"
+                android:text="@string/cart"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/emptyCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cart_empty"
+                android:textAlignment="center"
+                android:textColor="#7A5C60"
+                android:padding="16dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cartList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <TextView
+                android:id="@+id/totalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_zero"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#E63946"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginVertical="8dp" />
+
+            <!-- Payment -->
+            <TextView
+                style="@style/SectionLabel"
+                android:text="@string/payment_method" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/paymentGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCash"
+                    style="@style/PayChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cash" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGcash"
+                    style="@style/PayChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gcash" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <LinearLayout
+                android:id="@+id/cashSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cash_tendered"
+                    android:textStyle="bold"
+                    android:textColor="#3D2C2E" />
+
+                <EditText
+                    android:id="@+id/editCash"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:hint="@string/cash_hint"
+                    android:inputType="number"
+                    android:importantForAutofill="no"
+                    android:background="@drawable/bg_input"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/checkout"
+                android:textSize="18sp"
+                app:backgroundTint="#E63946"
+                app:cornerRadius="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHistory"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/view_sales_history"
+                android:textColor="#3D2C2E"
+                app:cornerRadius="16dp"
+                app:strokeColor="#3D2C2E"
+                app:strokeWidth="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnExpenses"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/view_expenses"
+                android:textColor="#3D2C2E"
+                app:cornerRadius="16dp"
+                app:strokeColor="#3D2C2E"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
